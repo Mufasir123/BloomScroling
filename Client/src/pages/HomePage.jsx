@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
-import CardS from "../components/CardS";
+import CardS from "../components/Cards";
 import { Outlet, useNavigate } from "react-router-dom";
 import useOtherUsers from "../customHooks/useOtherUsers";
 import { useSelector } from "react-redux";
