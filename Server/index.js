@@ -35,6 +35,9 @@ app.use("/api/posts",createPostRoute)
 //http://localhost:8080/api/user/register
 
 // Start the server on the specified port
+app.get('/',(req,res)=>{
+    res.send("Hello World")
+})
 app.listen(process.env.PORT, () => {
     console.log(`Server is running at port: ${process.env.PORT}`);
 });
