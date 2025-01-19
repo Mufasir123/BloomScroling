@@ -37,6 +37,7 @@ export default function App() {
     if (hasAccount) {
       //login logic
       try {
+        console.log(USER_API_END_POINT)
         const res = await axios.post(`${USER_API_END_POINT}/login`,{email,password},{
           headers:{
             "Content-Type":"application/json"
