@@ -14,9 +14,10 @@ const app = express();
 
 //middlewares
 app.use(cors({
-    origin:"*", // Allow requests from your frontend
-    credentials: true,              // Allow credentials (cookies, headers)
-}))
+    origin: process.env.CLIENT_URL, // Allow to server to accept request from different origin
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+}));
 app.use(express.urlencoded({
     extended:true
 }))
