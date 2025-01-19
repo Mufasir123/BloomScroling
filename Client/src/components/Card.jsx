@@ -8,7 +8,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { setRefresh } from "../store/slices/postSlice";
 
-const CardS = () => {
+const Card = () => {
   const dispatch = useDispatch();
   const boxWrapper = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -105,4 +105,4 @@ const CardS = () => {
   );
 };
 
-export default CardS;
+export default Card;

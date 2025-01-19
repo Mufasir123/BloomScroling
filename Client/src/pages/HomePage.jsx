@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
-import CardS from "../components/Cards";
 import { Outlet, useNavigate } from "react-router-dom";
 import useOtherUsers from "../customHooks/useOtherUsers";
 import { useSelector } from "react-redux";
 import useGetPosts from "../customHooks/useGetPosts";
+import Card from "../components/Card";
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,7 +38,7 @@ export default function HomePage() {
     <div className="flex gap-10 bg-black min-h-screen">
       <Sidebar isMobile={isMobile} otherUsers={otherUsers} />
       <div className="flex-grow p-4">
-        <CardS/>
+        <Card/>
       </div>
       <Outlet />
     </div>
