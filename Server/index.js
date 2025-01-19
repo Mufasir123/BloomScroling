@@ -14,7 +14,7 @@ const app = express();
 
 //middlewares
 app.use(cors({
-    origin: [`${process.env.CLIENT_URL}`,`${process.env.CLIENT_URL}/*`], // Allow requests from your frontend
+    origin:"*", // Allow requests from your frontend
     credentials: true,              // Allow credentials (cookies, headers)
 }))
 app.use(express.urlencoded({
