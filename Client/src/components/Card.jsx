@@ -19,7 +19,7 @@ const Card = () => {
   const { user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.posts);
   useGetPosts(posts);
-  console.log(posts);
+  // console.log(posts);
   
 
   useEffect(() => {

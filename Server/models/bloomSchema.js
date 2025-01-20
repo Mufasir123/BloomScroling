@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-
 const bloomSchema = new mongoose.Schema({
     description:{
         type:String,
         required:true
     },
     like:{
+        type: [mongoose.Schema.Types.ObjectId],
         type:Array,
         default:[]
     },
@@ -15,4 +15,4 @@ const bloomSchema = new mongoose.Schema({
     },
 },{timestamps:true})
 
-export const bloom = mongoose.model("Bloom",bloomSchema)
+export const Bloom = mongoose.model("Bloom",bloomSchema)
