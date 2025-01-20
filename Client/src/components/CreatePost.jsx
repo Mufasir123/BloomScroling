@@ -55,18 +55,6 @@ const CreatePost = () => {
           </p>
         </div>
         <div className="grid gap-4 py-4">
-          {/* <div className="grid grid-cols-4 items-center gap-4">
-            <label className="text-sm font-medium text-right text-black">
-              Name
-            </label>
-            <input
-            value={name}
-            onChange={(e)=>setName(e.target.value)}
-              type="text"
-              className="text-black col-span-3 h-9 w-full rounded-md border border-gray-300 px-3 py-1 text-sm"
-              defaultValue="name"
-            />
-          </div> */}
           <div className="grid grid-cols-4 items-center gap-4">
             <label className="text-sm font-medium text-right text-black">
               Description
@@ -76,7 +64,6 @@ const CreatePost = () => {
             onChange={(e)=>setDescription(e.target.value)}
               type="text"
               className="text-black col-span-3 h-9 w-full rounded-md border border-gray-300 px-3 py-1 text-sm"
-              defaultValue="description"
             />
           </div>
         </div>

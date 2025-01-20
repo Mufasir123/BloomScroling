@@ -40,7 +40,7 @@ const Sidebar = ({ isMobile, setProfileModalOpen, otherUsers }) => {
 
   return (
     <div
-      className={`${open ? "w-[18%]" : "w-40"} bg-black h-screen p-5 pt-8 fixed duration-300 z-[1000]`}
+      className={`${open ? "w-[18%]" : "w-16"} bg-black h-screen p-5 pt-8 fixed duration-300 z-[1000]`}
     >
       {!isMobile && (
         <img
@@ -133,11 +133,11 @@ const Sidebar = ({ isMobile, setProfileModalOpen, otherUsers }) => {
         </li>
 
 
-        <p className="flex items-center justify-center mt-4 text-white">Other Users </p>
+        <p className={`${!open ? "hidden" : ""} text-lg origin-left cursor-pointer duration-200`}>Other Users </p>
         {otherUsers?.map((user)=>{
           return(
             <li key={user?._id}
-          className="bg-slate-600 flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 mt-2"
+          className="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 mt-2"
         >
           <Link className="text-white text-2xl ">
             <Profile/>

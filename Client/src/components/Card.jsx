@@ -59,7 +59,7 @@ const Card = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 ml-[20%]">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 ml-[25%]">
       {posts?.map((item) => (
         <div key={item?._id} className="w-full">
           <div
