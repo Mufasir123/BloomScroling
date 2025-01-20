@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { getMyProfile, getOtherUser, getUser } from "../store/slices/userSlice";
 
-const Sidebar = ({ isMobile, setProfileModalOpen, otherUsers }) => {
+const Sidebar = ({ isMobile, otherUsers }) => {
   const [open, setOpen] = useState(!isMobile);
   const navigate = useNavigate();
   const dispatch = useDispatch();

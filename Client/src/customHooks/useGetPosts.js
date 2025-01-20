@@ -13,6 +13,7 @@ const useGetPosts =(id)=>{
                 const res =await axios.get(`${POST_API_END_POINT}/allposts/${id}`,{
                     withCredentials:true
                 })
+                
                 dispatch(getAllPosts(res.data.posts))
             } catch (error) {
                 console.log(error);
