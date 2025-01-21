@@ -16,13 +16,13 @@ const Posts = () => {
     }, [])
 
   return (
-    <div className="bg-black">
+    <div className="bg-black h-screen">
 
       <Link to="/home" >
       <FaFastBackward className=" text-white ml-5  " />
       </Link>
       
-    <div className="h-screen bg-black flex justify-center items-start">
+    <div className=" bg-black flex justify-center items-start">
       {/* Display Posts */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts?.map((item) => (

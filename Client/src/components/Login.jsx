@@ -7,6 +7,7 @@ import { USER_API_END_POINT } from "../utils/utils";
 import { toast } from 'react-toastify';
 import { useDispatch } from "react-redux";
 import { getUser } from "../store/slices/userSlice";
+import { motion } from "framer-motion";
 
 export default function App() {
   const [hasAccount, setHasAccount] = useState(true); // Flag to track if the user has an account
@@ -52,7 +53,7 @@ export default function App() {
         }
         
       } catch (error) {
-          // toast.error(error.response.data.message)
+          toast.error(error.response.data.message)
         console.log(error);
       }
     }else{
@@ -98,15 +99,19 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black p-4">
-      <Form
+      <motion.form
+      whileHover={{scale:1.1}}
         className="w-full max-w-md p-6 bg-gray-900 text-white rounded-lg shadow-md space-y-6"
         validationBehavior="native"
         validationErrors={errors}
         onReset={() => setSubmitted(null)}
         onSubmit={onSubmitHandle}
       >
-        <Link to="/" className="text-lg">
+        <Link to="/" className="text-lg ">
+        <motion.div className="w-5"  whileHover={{backgroundColor:"ActiveBorder"}} >
+
         <IoMdArrowRoundBack />
+        </motion.div>
         </Link>
         <div className="space-y-4 text-white">
           {hasAccount ? (
@@ -141,9 +146,12 @@ export default function App() {
               />
 
               <div className="flex items-center justify-center">
-                <Button className="w-full bg-blue-700 text-white rounded-lg" color="primary" type="submit">
+                <motion.button
+                whileTap={{scale:0.8, backgroundColor:"red"}}
+                transition={{type:"keyframe", stiffness:300}}
+                className="w-full h-10 bg-blue-700 text-white rounded-lg" color="primary" type="submit">
                   Login
-                </Button>
+                </motion.button>
               </div>
 
               <p className="mt-4 text-center">
@@ -227,7 +235,7 @@ export default function App() {
             Submitted data: <pre>{JSON.stringify(submitted, null, 2)}</pre>
           </div>
         )} */}
-      </Form>
+      </motion.form>
     </div>
   );
 }

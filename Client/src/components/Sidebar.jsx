@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { IoHomeOutline, IoSearch } from "react-icons/io5";
-import { VscAccount, VscExtensions } from "react-icons/vsc";
+import { IoHomeOutline} from "react-icons/io5";
+import {VscExtensions } from "react-icons/vsc";
 import { Link, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
 import CreatePost from "./CreatePost";
@@ -10,6 +10,7 @@ import { USER_API_END_POINT } from "../utils/utils";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { getMyProfile, getOtherUser, getUser } from "../store/slices/userSlice";
+import {motion} from 'framer-motion'
 
 const Sidebar = ({ isMobile, otherUsers }) => {
   const [open, setOpen] = useState(!isMobile);
