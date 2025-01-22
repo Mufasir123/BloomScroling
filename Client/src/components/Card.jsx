@@ -1,9 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import useGetPosts from "../customHooks/useGetPosts";
-
 import axios from "axios";
 import { toast } from "react-toastify";
 import { setRefresh } from "../store/slices/postSlice";
@@ -16,11 +13,14 @@ const Card = () => {
     x: null,
     y: null,
   });
+
+  // Extracting user and posts from Redux
   const { user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.posts);
-  useGetPosts(posts);
-  // console.log(posts);
-  
+
+
+  useGetPosts(user?._id); // Pass the user's ID here
+
 
   useEffect(() => {
     const updateMousePosition = (ev) => {
@@ -56,7 +56,8 @@ const Card = () => {
         toast.success(res.data.message);
       }
     } catch (error) {
-      // toast.error(error.response.message)
+      // Handle error appropriately
+      console.error("Error liking/disliking post:", error);
     }
   };
 

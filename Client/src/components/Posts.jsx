@@ -5,7 +5,6 @@ import { FaFastBackward } from "react-icons/fa";
 
 const Posts = () => {
   const { posts } = useSelector((state) => state.posts);
-  console.log(posts);
   
   const navigate = useNavigate();
   const {user} = useSelector(store=>store.user)

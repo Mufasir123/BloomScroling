@@ -13,18 +13,24 @@ const useGetPosts = (id) => {
 
         const fetchPosts = async () => {
             try {
-                console.log(`Fetching posts for user ID: ${id}`);
+                // Validate ID
+                if (!id || typeof id !== "string") {
+                    console.error("Invalid user ID:", id);
+                    return;
+                }
                 const res = await axios.get(`${POST_API_END_POINT}/allposts/${id}`, {
                     withCredentials: true
                 });
-            
-                console.log("Response is coming...",res);
-                
+
+
                 if (isMounted) {
                     dispatch(getAllPosts(res.data.posts));
                 }
             } catch (error) {
-                console.error('Error fetching posts:', error.response ? error.response.data : error.message);
+                console.error(
+                    "Error fetching posts:",
+                    error.response ? error.response.data : error.message
+                );
             }
         };
 

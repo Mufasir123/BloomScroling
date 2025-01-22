@@ -71,7 +71,6 @@ export const likeOrDislike = async(req, res)=>{
 export const getAllPosts = async (req, res)=>{
     try {
         const {id} = req.params;
-        console.log("Id is comming: ",id);
 
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).send({ error: 'Invalid ID format' });
@@ -79,7 +78,6 @@ export const getAllPosts = async (req, res)=>{
 
         
         const loggedInUser = await User.findById(id)
-        console.log("logged in user:",loggedInUser);
         
  
         const loggedInUserPosts = await Bloom.find({userId:id})
@@ -87,9 +85,7 @@ export const getAllPosts = async (req, res)=>{
         const followingUserPost = await Promise.all(loggedInUser.following.map((otherUserId)=>{
             return Bloom.find({userId:otherUserId})
         }))
-        console.log("Following user posts:",followingUserPost);
         
-
         return res.status(200).json({
             posts:loggedInUserPosts.concat(...followingUserPost)
         })
