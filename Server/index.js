@@ -33,9 +33,9 @@ app.use("/api/user",router)
 app.use("/api/posts",createPostRoute)
 
 
-app.use(express.static(path.join(_dirname,"../Client/dist")));
+app.use(express.static(path.join(_dirname,"/Client/dist")));
 app.get('*',(_, res)=>{
-    res.sendFile(path.join(__dirname, '../Client/dist/index.html'));
+    res.sendFile(path.resolve(_dirname,"Client","dist","index.html"))
 })
 
 
