@@ -78,10 +78,7 @@ export const getAllPosts = async (req, res)=>{
 
         
         const loggedInUser = await User.findById(id)
-        
- 
         const loggedInUserPosts = await Bloom.find({userId:id})
-        console.log("logged in user posts:",loggedInUserPosts);
         const followingUserPost = await Promise.all(loggedInUser.following.map((otherUserId)=>{
             return Bloom.find({userId:otherUserId})
         }))

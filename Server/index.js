@@ -5,11 +5,13 @@ import dataBaseConnection from "./config/database.js"
 import cookieParser from 'cookie-parser';
 import router from './routes/userRoute.js';
 import createPostRoute from './routes/createPost.js';
+import path from 'path';
 
 // Load environment variables from .env file
 dotenv.config();
 dataBaseConnection();
 const app = express();
+const _dirname = path.resolve()
 
 
 //middlewares
@@ -29,6 +31,12 @@ app.use(cookieParser())
 
 app.use("/api/user",router)
 app.use("/api/posts",createPostRoute)
+
+
+app.use(express.static(path.join(_dirname,"/Client/dist")));
+app.get('*',(_, res)=>{
+    res.sendFile(path.resolve(_dirname,"Client","dist","index.html"))
+})
 
 
 

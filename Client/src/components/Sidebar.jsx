@@ -11,6 +11,8 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { getMyProfile, getOtherUser, getUser } from "../store/slices/userSlice";
 import {motion} from 'framer-motion'
+import { BiLogoBlogger } from "react-icons/bi";
+import { TbPlayerSkipBackFilled } from "react-icons/tb";
 
 const Sidebar = ({ isMobile, otherUsers }) => {
   const [open, setOpen] = useState(!isMobile);
@@ -44,20 +46,10 @@ const Sidebar = ({ isMobile, otherUsers }) => {
       className={`${open ? "w-[18%]" : "w-16"} bg-black h-screen p-5 pt-8 fixed duration-300 z-[1000]`}
     >
       {!isMobile && (
-        <img
-          src="../src/assets/control.png"
-          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
-          border-2 rounded-full ${!open ? "rotate-180" : ""}`}
-          onClick={() => setOpen(!open)}
-          alt="Control Icon"
-        />
+        <TbPlayerSkipBackFilled  onClick={() => setOpen(!open)} className={`absolute cursor-pointer text-white text-2xl -right-3 top-9 w-7 border-dark-purple border-2 rounded-full ${!open ? "rotate-180" : ""}`}/>
       )}
       <div className="flex gap-x-4 items-center">
-        <img
-          src="../src/assets/smiley.svg"
-          className={`w-8 cursor-pointer duration-500 ${open ? "rotate-[360deg]" : ""}`}
-          alt="Smiley Icon"
-        />
+      <BiLogoBlogger  className={`w-8 cursor-pointer duration-500 text-white text-2xl ${open ? "rotate-[360deg]" : ""}`} />
         <h1
           className={`text-white origin-left font-medium duration-200 cursor-pointer ${
             !open ? "hidden" : ""
