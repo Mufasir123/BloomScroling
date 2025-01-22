@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && npm install vite --prefix Client && npm vite build --prefix Client ",
+    "build": "npm install && npm install --prefix Client && npm vite build --prefix Client ",
     "start": "nodemon Server/index.js",
     "dev": "nodemon Server/index.js"
   },
