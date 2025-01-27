@@ -5,7 +5,6 @@ import axios from "axios";
 import { POST_API_END_POINT } from "../utils/utils";
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from "react-redux";
-import { use } from "react";
 import { setRefresh } from "../store/slices/postSlice";
 
 
