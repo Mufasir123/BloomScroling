@@ -19,19 +19,6 @@ export default function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
-  // const getPasswordError = (value) => {
-  //   if (value.length < 4) {
-  //     return "Password must be 4 characters or more";
-  //   }
-  //   if ((value.match(/[A-Z]/g) || []).length < 1) {
-  //     return "Password needs at least 1 uppercase letter";
-  //   }
-  //   if ((value.match(/[^a-z]/gi) || []).length < 1) {
-  //     return "Password needs at least 1 symbol";
-  //   }
-  //   return null;
-  // };
-
   const onSubmitHandle = async (e) => {
     e.preventDefault();
     console.log(name,email,password);
@@ -77,24 +64,11 @@ export default function App() {
 
     const newErrors = {};
 
-    // Password validation
-    // const passwordError = getPasswordError(data.password);
-    // if (passwordError) {
-    //   newErrors.password = passwordError;
-    // }
-
-    // Username validation for signup
-    // if (!hasAccount && data.name === "admin") {
-    //   newErrors.name = "Nice try! Choose a different username";
-    // }
-
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    // setErrors({});
-    // setSubmitted(data);
   };
 
   return (

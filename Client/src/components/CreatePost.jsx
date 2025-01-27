@@ -14,6 +14,8 @@ const CreatePost = () => {
   const [description, setDescription] = useState("");
   const {user} = useSelector(store=>store.user)
   const dispatch = useDispatch()
+
+  
   const submitHandler =async () => {
 
     try {

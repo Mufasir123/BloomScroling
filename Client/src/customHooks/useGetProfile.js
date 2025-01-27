@@ -18,6 +18,7 @@ const useGetProfile =(id)=>{
             } catch (error) {
                 console.log(error);
                 
+                
             }
 
         }
