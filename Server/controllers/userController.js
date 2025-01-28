@@ -1,4 +1,4 @@
-import { User } from "../models/userSchema.js"
+import  User  from "../models/userSchema.js"
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -23,7 +23,8 @@ export const Register = async(req, res)=>{
             })
         }
 
-        const hashedPassword = await bcrypt.hash(password,10)
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password,salt)
 
         // create user 
         await User.create({
@@ -91,9 +92,14 @@ export const Login = async (req, res) => {
                 httpOnly: true,
             })
             .json({
-                message: `Welcome back ${user.name || user.email}`,
-                user,
                 success: true,
+                message: `Welcome back ${user.name || user.email}`,
+                user: {
+                    name: user.name,
+                    email: user.email,
+                    _id: user._id
+                },
+                token
             });
 
     } catch (error) {

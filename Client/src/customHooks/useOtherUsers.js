@@ -9,11 +9,13 @@ const useOtherUsers =(id)=>{
     useEffect(() => {
         const fetchOtherUsers = async ()=>{
             try {
+                const token = localStorage.getItem("token");
                 const res =await axios.get(`${USER_API_END_POINT}/getusers/${id}`,{
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                      },
                     withCredentials:true
                 })
-                // console.log(getMyProfile(res));
-                
                 dispatch(getOtherUser(res.data.otherUsers))
             } catch (error) {
                 console.log(error);

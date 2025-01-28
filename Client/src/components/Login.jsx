@@ -25,7 +25,6 @@ export default function App() {
     if (hasAccount) {
       //login logic
       try {
-        console.log(USER_API_END_POINT)
         const res = await axios.post(`${USER_API_END_POINT}/login`,{email,password},{
           headers:{
             "Content-Type":"application/json"
@@ -35,12 +34,13 @@ export default function App() {
         })
         dispatch(getUser(res?.data?.user))
         if(res.data.success){
+          localStorage.setItem("token", res.data.token)
           navigate("/home")
           toast.success(res.data.message)
         }
         
       } catch (error) {
-          toast.error(error.response.data.message)
+          toast.error(error?.res?.data?.message)
         console.log(error);
       }
     }else{
@@ -53,11 +53,12 @@ export default function App() {
           withCredentials:true
         })
         if(res.data.success){
+          localStorage.setItem("token", res.data.token)
           toast.success(res.data.message)
         }
         
       } catch (error) {
-        toast.success(error.response.data.message)
+        toast.success(res.data.message)
         console.log(error);  
       }
     }

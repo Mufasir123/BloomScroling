@@ -11,6 +11,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const {user, otherUsers} = useSelector(store=>store.user)
   useOtherUsers(user?._id)
+  useOtherUsers(otherUsers?._id)
   useGetPosts(user?._id)
 
   useEffect(() => {

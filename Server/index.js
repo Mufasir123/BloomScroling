@@ -13,10 +13,11 @@ dataBaseConnection();
 const app = express();
 const _dirname = path.resolve()
 
-
+const allowedOrigins = ["http://localhost:5173",`${process.env.CLIENT_URL}`,
+  `${process.env.CLIENT_URL}/*`,]
 //middlewares
 app.use(cors({
-    origin: process.env.CLIENT_URL, // Allow to server to accept request from different origin
+    origin: allowedOrigins,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
 }));
@@ -50,3 +51,4 @@ app.get('/',(req,res)=>{
 app.listen(process.env.PORT, () => {
     console.log(`Server is running at port: ${process.env.PORT}`);
 });
+

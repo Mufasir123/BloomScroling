@@ -18,8 +18,10 @@ const CreatePost = () => {
   const submitHandler =async () => {
 
     try {
+      const token = localStorage.getItem("token");
         const res = await axios.post(`${POST_API_END_POINT}/create`,{description,id:user?._id},{
             headers:{
+              Authorization: `Bearer ${token}`,
                 "Content-Type":"application/json"
             },
             withCredentials:true

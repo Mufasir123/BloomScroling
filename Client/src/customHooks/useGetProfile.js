@@ -9,11 +9,13 @@ const useGetProfile =(id)=>{
     useEffect(() => {
         const fetchMyProfile = async ()=>{
             try {
+                const token = localStorage.getItem("token");
                 const res =await axios.get(`${USER_API_END_POINT}/profile/${id}`,{
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                      },
                     withCredentials:true
                 })
-                // console.log(getMyProfile(res));
-                
                 dispatch(getMyProfile(res.data.user))
             } catch (error) {
                 console.log(error);

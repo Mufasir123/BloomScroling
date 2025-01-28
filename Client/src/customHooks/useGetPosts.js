@@ -13,12 +13,16 @@ const useGetPosts = (id) => {
 
         const fetchPosts = async () => {
             try {
+                const token = localStorage.getItem("token");
                 // Validate ID
                 if (!id || typeof id !== "string") {
                     console.error("Invalid user ID:", id);
                     return;
                 }
                 const res = await axios.get(`${POST_API_END_POINT}/allposts/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
                     withCredentials: true
                 });
 

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { Bloom } from "../models/bloomSchema.js"
-import { User } from "../models/userSchema.js";
+import  User  from "../models/userSchema.js";
 
 export const createPost = async (req, res)=>{
     try {
