@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { setRefresh } from "../store/slices/postSlice";
 
-const Card = () => {
+const Card = ({ open }) => {
   const dispatch = useDispatch();
   const boxWrapper = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -18,9 +18,7 @@ const Card = () => {
   const { user } = useSelector((state) => state.user);
   const { posts } = useSelector((state) => state.posts);
 
-
   useGetPosts(user?._id); // Pass the user's ID here
-
 
   useEffect(() => {
     const updateMousePosition = (ev) => {
@@ -56,13 +54,16 @@ const Card = () => {
         toast.success(res.data.message);
       }
     } catch (error) {
-      // Handle error appropriately
       console.error("Error liking/disliking post:", error);
     }
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 ml-[25%]">
+    <div
+      className={`grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 ${
+        open ? "" : "mx-auto" 
+      }`}
+    >
       {posts?.map((item) => (
         <div key={item?._id} className="w-full">
           <div

@@ -14,8 +14,8 @@ import {motion} from 'framer-motion'
 import { BiLogoBlogger } from "react-icons/bi";
 import { TbPlayerSkipBackFilled } from "react-icons/tb";
 
-const Sidebar = ({ isMobile, otherUsers }) => {
-  const [open, setOpen] = useState(!isMobile);
+const Sidebar = ({ isMobile, otherUsers, open, setOpen }) => {
+  // const [open, setOpen] = useState(!isMobile);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ const Sidebar = ({ isMobile, otherUsers }) => {
 
   return (
     <div
-      className={`${open ? "w-[18%]" : "w-16"} bg-black h-screen p-5 pt-8 fixed duration-300 z-[1000] top-2 flex flex-col items-center  `}
+      className={`${open ? "w-[18%]" : "w-16"} bg-black h-screen p-2 pt-8 fixed duration-300 z-[1000] top-2 flex flex-col items-center  `}
     >
       {!isMobile && (
         <TbPlayerSkipBackFilled  onClick={() => setOpen(!open)} className={`absolute cursor-pointer text-white text-2xl -right-3 top-0 w-7 border-dark-purple border-2 rounded-full ${!open ? "rotate-180" : ""}`}/>
